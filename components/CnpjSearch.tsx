@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Loader2, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchCompanyByCnpj } from '../services/api';
 import { CompanyData } from '../types';
 import { CompanyDetails } from './CompanyDetails';
@@ -31,6 +32,9 @@ const FaqItem: React.FC<{ question: string; answer: string }> = ({ question, ans
 };
 
 export const CnpjSearch: React.FC = () => {
+  const { cnpj: cnpjParam } = useParams();
+  const navigate = useNavigate();
+  
   const [cnpjInput, setCnpjInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -51,7 +55,9 @@ export const CnpjSearch: React.FC = () => {
   };
 
   const performSearch = async (cnpjToSearch: string) => {
-    if (cnpjToSearch.length < 14) {
+    const cleanCnpj = cnpjToSearch.replace(/[^\d]/g, '');
+    
+    if (cleanCnpj.length !== 14) {
       setError('CNPJ inválido. Digite os 14 dígitos.');
       return;
     }
@@ -60,11 +66,11 @@ export const CnpjSearch: React.FC = () => {
     setError(null);
     setData(null);
     
-    // Update input if searched programmatically
-    setCnpjInput(formatCnpj(cnpjToSearch));
+    // Update input field visual state
+    setCnpjInput(formatCnpj(cleanCnpj));
 
     try {
-      const result = await fetchCompanyByCnpj(cnpjToSearch);
+      const result = await fetchCompanyByCnpj(cleanCnpj);
       setData(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ocorreu um erro desconhecido.');
@@ -73,9 +79,35 @@ export const CnpjSearch: React.FC = () => {
     }
   };
 
+  // Effect to handle URL params changes
+  useEffect(() => {
+    if (cnpjParam) {
+      const cleanParam = cnpjParam.replace(/[^\d]/g, '');
+      if (cleanParam.length === 14) {
+        // Only search if it's different from what we're currently showing to avoid loops
+        if (!data || data.cnpj.replace(/[^\d]/g, '') !== cleanParam) {
+           performSearch(cleanParam);
+        }
+      }
+    } else {
+      // Reset if navigating back to home root
+      if (!loading && data) {
+        setData(null);
+        setCnpjInput('');
+      }
+    }
+  }, [cnpjParam]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    performSearch(cnpjInput);
+    const cleanCnpj = cnpjInput.replace(/[^\d]/g, '');
+    
+    if (cleanCnpj.length === 14) {
+      // Update URL, this will trigger the useEffect to search
+      navigate(`/${cleanCnpj}`);
+    } else {
+      setError('CNPJ inválido. Digite os 14 dígitos.');
+    }
   };
 
   return (

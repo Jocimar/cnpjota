@@ -22,6 +22,7 @@ const App: React.FC = () => {
           <div className="w-full max-w-6xl mx-auto">
             <Routes>
               <Route path="/" element={<CnpjSearch />} />
+              <Route path="/:cnpj" element={<CnpjSearch />} />
               <Route path="/docs" element={<Documentation />} />
               
               {/* New Pages */}
