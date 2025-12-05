@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CompanyData } from '../types';
 import { MapPin, Calendar, Users, Building2 } from 'lucide-react';
 
@@ -48,7 +48,7 @@ const CopyableValue: React.FC<{ value: string | number | null | undefined; class
 
 const DetailRow: React.FC<{ label: string; value: string | number | null | undefined }> = ({ label, value }) => (
   <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-slate-100 dark:border-slate-800 last:border-0 hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors px-2 -mx-2 rounded-sm">
-    <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 sm:mb-0">{label}</span>
+    <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 sm:mb-0 text-left">{label}</span>
     <div className="text-left sm:text-right mt-1 sm:mt-0">
       <CopyableValue value={value} className="text-sm text-slate-900 dark:text-slate-100" />
     </div>
@@ -69,6 +69,20 @@ export const CompanyDetails: React.FC<CompanyDetailsProps> = ({ data }) => {
       default: return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400';
     }
   };
+
+  useEffect(() => {
+    // Initialize AdSense units when component mounts
+    try {
+      // @ts-ignore
+      const adsbygoogle = window.adsbygoogle || [];
+      // Push for Desktop Ad
+      adsbygoogle.push({});
+      // Push for Mobile Ad
+      adsbygoogle.push({});
+    } catch (e) {
+      console.error("AdSense error:", e);
+    }
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -128,16 +142,32 @@ export const CompanyDetails: React.FC<CompanyDetailsProps> = ({ data }) => {
       </div>
 
       {/* Ad Space Container */}
-      <div className="flex justify-center w-full py-6">
-        {/* Desktop/Tablet Ad: 728x90 (Hidden on mobile) */}
-        <div className="hidden md:flex w-[728px] h-[90px] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-400 text-sm rounded-md shrink-0">
-          Publicidade (728x90)
+      <div className="flex justify-center w-full py-6 bg-slate-50 dark:bg-slate-900/50 rounded-lg">
+        
+        {/* Desktop/Tablet Ad: 728x90 */}
+        <div className="hidden md:block">
+          {/* cnpjj 728x90 */}
+          <ins 
+            className="adsbygoogle"
+            style={{ display: 'inline-block', width: '728px', height: '90px' }}
+            data-ad-client="ca-pub-2924325515288163"
+            data-ad-slot="9170752312">
+          </ins>
         </div>
 
-        {/* Mobile Ad: 1200x1200 (Hidden on desktop) - Renders as responsive square */}
-        <div className="flex md:hidden w-full aspect-square bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-400 text-sm rounded-md">
-           Publicidade (1200x1200)
+        {/* Mobile Ad: 1200x1200 (Responsive Square) */}
+        <div className="block md:hidden w-full aspect-square overflow-hidden">
+          {/* cnpjj 1200x1200 */}
+          <ins 
+            className="adsbygoogle"
+            style={{ display: 'block' }}
+            data-ad-client="ca-pub-2924325515288163"
+            data-ad-slot="3437696444"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+          </ins>
         </div>
+
       </div>
 
       {/* Activities */}
