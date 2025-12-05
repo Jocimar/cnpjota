@@ -10,13 +10,13 @@ export const Footer: React.FC = () => {
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-2 font-bold text-lg text-slate-900 dark:text-white mb-4">
             <Building2 className="w-6 h-6 text-emerald-600" />
-            <span>CNPJota</span>
+            <span>CNPJJ</span>
           </div>
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
             Sua ferramenta confiável para consulta de dados públicos de empresas brasileiras, enriquecida com análise de inteligência artificial.
           </p>
           <p className="text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} CNPJota. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} CNPJJ. Todos os direitos reservados.
           </p>
         </div>
 
@@ -28,12 +28,12 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               {section.items.map((item) => (
                 <li key={item.href}>
-                  <a 
-                    href={item.href}
+                  <Link 
+                    to={item.href}
                     className="text-sm text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

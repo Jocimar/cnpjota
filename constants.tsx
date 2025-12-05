@@ -14,22 +14,22 @@ export const NAV_ITEMS = [
   {
     category: 'Ferramentas',
     items: [
-      { title: 'Consulta CNPJ', href: '#/', icon: Search },
-      { title: 'Status do Serviço', href: '#/status', icon: Activity },
+      { title: 'Consulta CNPJ', href: '/', icon: Search },
+      { title: 'Status do Serviço', href: '/status', icon: Activity },
     ],
   },
   {
     category: 'Desenvolvedores',
     items: [
-      { title: 'Documentação API', href: '#/docs', icon: BookOpen },
+      { title: 'Documentação API', href: '/docs', icon: BookOpen },
     ]
   },
   {
     category: 'Institucional',
     items: [
-      { title: 'Sobre', href: '#/sobre', icon: Info },
-      { title: 'Políticas de Privacidade', href: '#/privacidade', icon: Shield },
-      { title: 'Termos de Uso', href: '#/termos', icon: FileText },
+      { title: 'Sobre', href: '/sobre', icon: Info },
+      { title: 'Políticas de Privacidade', href: '/privacidade', icon: Shield },
+      { title: 'Termos de Uso', href: '/termos', icon: FileText },
     ],
   },
 ];
@@ -38,22 +38,22 @@ export const FOOTER_LINKS = [
   {
     title: 'Ferramentas',
     items: [
-      { title: 'Consulta CNPJ', href: '#/', icon: Search },
-      { title: 'Status do Serviço', href: '#/status', icon: Activity },
+      { title: 'Consulta CNPJ', href: '/', icon: Search },
+      { title: 'Status do Serviço', href: '/status', icon: Activity },
     ],
   },
   {
     title: 'Desenvolvedores',
     items: [
-      { title: 'Documentação API', href: '#/docs', icon: BookOpen },
+      { title: 'Documentação API', href: '/docs', icon: BookOpen },
     ]
   },
   {
     title: 'Institucional',
     items: [
-      { title: 'Sobre', href: '#/sobre', icon: Info },
-      { title: 'Políticas de Privacidade', href: '#/privacidade', icon: Shield },
-      { title: 'Termos de Uso', href: '#/termos', icon: FileText },
+      { title: 'Sobre', href: '/sobre', icon: Info },
+      { title: 'Políticas de Privacidade', href: '/privacidade', icon: Shield },
+      { title: 'Termos de Uso', href: '/termos', icon: FileText },
     ],
   },
 ];

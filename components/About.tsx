@@ -6,7 +6,7 @@ export const About: React.FC = () => {
     <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="text-center space-y-4 py-8">
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-          Sobre o CNPJota
+          Sobre o CNPJJ
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
           Simplificando o acesso à informação pública empresarial no Brasil com transparência e tecnologia.
@@ -40,7 +40,7 @@ export const About: React.FC = () => {
           </div>
           <h3 className="text-lg font-semibold mb-2">Privacidade em Foco</h3>
           <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-            Não armazenamos histórico das suas consultas. O CNPJota atua como uma interface de visualização, respeitando a sua privacidade e a segurança dos dados.
+            Não armazenamos histórico das suas consultas. O CNPJJ atua como uma interface de visualização, respeitando a sua privacidade e a segurança dos dados.
           </p>
         </div>
       </div>
@@ -49,7 +49,7 @@ export const About: React.FC = () => {
         <h3>Nossa Missão</h3>
         <p>
           Acreditamos que o acesso facilitado a dados públicos é um pilar fundamental para o ambiente de negócios no Brasil. 
-          Seja para análise de crédito, prospecção de vendas ou simples verificação cadastral, o <strong>CNPJota</strong> 
+          Seja para análise de crédito, prospecção de vendas ou simples verificação cadastral, o <strong>CNPJJ</strong> 
           está aqui para remover barreiras burocráticas.
         </p>
       </div>

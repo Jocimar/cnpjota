@@ -79,7 +79,8 @@ export const CnpjSearch: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto pb-12">
+    // Removed max-w-4xl to allow full width alignment with footer
+    <div className="space-y-8 w-full mx-auto pb-12">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Consulta CNPJ</h1>
         <p className="text-slate-500 dark:text-slate-400">

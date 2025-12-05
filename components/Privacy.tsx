@@ -10,7 +10,7 @@ export const Privacy: React.FC = () => {
 
       <div className="prose prose-slate dark:prose-invert max-w-none">
         <p>
-          A sua privacidade é importante para nós. É política do <strong>CNPJota</strong> respeitar a sua privacidade em relação a qualquer informação que possamos coletar no site.
+          A sua privacidade é importante para nós. É política do <strong>CNPJJ</strong> respeitar a sua privacidade em relação a qualquer informação que possamos coletar no site.
         </p>
 
         <h3>1. Coleta de Dados</h3>

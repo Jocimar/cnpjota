@@ -1,6 +1,7 @@
 import React from 'react';
 import { NAV_ITEMS } from '../constants';
 import { X, Building2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -48,9 +49,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               </h3>
               <div className="space-y-1">
                 {group.items.map((item) => (
-                  <a
+                  <Link
                     key={item.href}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => {
                       if (window.innerWidth < 768) onClose();
                     }}
@@ -58,7 +59,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   >
                     <item.icon className="w-4 h-4" />
                     {item.title}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

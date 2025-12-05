@@ -48,8 +48,8 @@ const CopyableValue: React.FC<{ value: string | number | null | undefined; class
 
 const DetailRow: React.FC<{ label: string; value: string | number | null | undefined }> = ({ label, value }) => (
   <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-slate-100 dark:border-slate-800 last:border-0 hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors px-2 -mx-2 rounded-sm">
-    <span className="text-sm font-medium text-slate-500 dark:text-slate-400">{label}</span>
-    <div className="text-right mt-1 sm:mt-0">
+    <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 sm:mb-0">{label}</span>
+    <div className="text-left sm:text-right mt-1 sm:mt-0">
       <CopyableValue value={value} className="text-sm text-slate-900 dark:text-slate-100" />
     </div>
   </div>
@@ -124,6 +124,19 @@ export const CompanyDetails: React.FC<CompanyDetailsProps> = ({ data }) => {
             <DetailRow label="CEP" value={data.cep} />
             <DetailRow label="Telefone" value={data.ddd_telefone_1 ? `(${data.ddd_telefone_1})` : '-'} />
           </div>
+        </div>
+      </div>
+
+      {/* Ad Space Container */}
+      <div className="flex justify-center w-full py-6">
+        {/* Desktop/Tablet Ad: 728x90 (Hidden on mobile) */}
+        <div className="hidden md:flex w-[728px] h-[90px] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-400 text-sm rounded-md shrink-0">
+          Publicidade (728x90)
+        </div>
+
+        {/* Mobile Ad: 1200x1200 (Hidden on desktop) - Renders as responsive square */}
+        <div className="flex md:hidden w-full aspect-square bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-400 text-sm rounded-md">
+           Publicidade (1200x1200)
         </div>
       </div>
 

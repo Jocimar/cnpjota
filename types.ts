@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface Cnae {
   codigo: number;
   descricao: string;
