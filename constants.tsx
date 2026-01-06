@@ -9,7 +9,8 @@ import {
   Ban,
   ShieldCheck,
   Clock,
-  Truck
+  Truck,
+  CreditCard
 } from 'lucide-react';
 
 export const API_BASE_URL = 'https://brasilapi.com.br/api/cnpj/v1';
@@ -38,6 +39,7 @@ export const NAV_ITEMS = [
     items: [
       { title: 'Consulta CNPJ', href: '/', icon: Search },
       { title: 'Status do Serviço', href: '/status', icon: Activity },
+      { title: 'Maquininha de Cartão', href: PAGBANK_AFFILIATE_LINK, icon: CreditCard, external: true },
     ],
   },
   {
@@ -62,6 +64,7 @@ export const FOOTER_LINKS = [
     items: [
       { title: 'Consulta CNPJ', href: '/', icon: Search },
       { title: 'Status do Serviço', href: '/status', icon: Activity },
+      { title: 'Maquininha de Cartão', href: PAGBANK_AFFILIATE_LINK, icon: CreditCard, external: true },
     ],
   },
   {

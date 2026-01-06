@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FOOTER_LINKS } from '../constants';
 import { Building2 } from 'lucide-react';
@@ -28,12 +29,23 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               {section.items.map((item) => (
                 <li key={item.href}>
-                  <Link 
-                    to={item.href}
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors flex items-center gap-2"
-                  >
-                    {item.title}
-                  </Link>
+                  {item.href.startsWith('http') ? (
+                    <a 
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors flex items-center gap-2"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    <Link 
+                      to={item.href}
+                      className="text-sm text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors flex items-center gap-2"
+                    >
+                      {item.title}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
