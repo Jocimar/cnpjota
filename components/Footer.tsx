@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
         {/* Copyright Row - Centralized */}
         <div className="pt-8 border-t border-slate-100 dark:border-slate-900 text-center">
           <p className="text-xs text-slate-400">
-            &copy; 2026 CNPJJ. Todos os direitos reservados.
+            &copy; 2025 CNPJJ. Todos os direitos reservados.
           </p>
         </div>
       </div>
