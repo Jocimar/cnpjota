@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CompanyData } from '../types';
-import { MapPin, Users, Building2, ChevronDown, ChevronUp, CreditCard, CheckCircle2, ArrowRight, Truck, Sparkles, X, LayoutDashboard, Zap, MousePointerClick } from 'lucide-react';
+import { MapPin, Users, Building2, ChevronDown, ChevronUp, CreditCard, CheckCircle2, ArrowRight, Truck, Sparkles, X, LayoutDashboard, Zap, MousePointerClick, Mail, Phone, Hash } from 'lucide-react';
 import { AFFILIATE_LINK, MACHINE_MODELS_DATA, SMB_STORE_DATA } from '../constants';
 
 // SMB Store Banner Component
@@ -168,16 +168,16 @@ const ResponsiveAd = ({ isMobile, brand, modelIndex = 0 }: { isMobile: boolean, 
   </div>
 );
 
-const CopyableValue: React.FC<{ value: string | number | null | undefined; className?: string; label?: string; truncate?: boolean }> = ({ value, className, label, truncate = true }) => {
+const CopyableValue: React.FC<{ value: string | number | null | undefined; className?: string; label?: string; truncate?: boolean; isEmail?: boolean }> = ({ value, className, label, truncate = true, isEmail = false }) => {
   const [copied, setCopied] = useState(false);
   
-  const hasValue = value !== null && value !== undefined && value !== '';
-  const displayValue = hasValue ? value : '-';
+  const hasValue = value !== null && value !== undefined && String(value).trim() !== '' && !String(value).toLowerCase().includes('receita@federal.gov.br');
+  const displayValue = hasValue ? String(value).trim() : 'Não informado';
 
   const handleCopy = (e: React.MouseEvent) => {
     if (!hasValue) return;
     e.stopPropagation();
-    navigator.clipboard.writeText(String(value));
+    navigator.clipboard.writeText(String(value).trim());
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -190,9 +190,20 @@ const CopyableValue: React.FC<{ value: string | number | null | undefined; class
         aria-label={hasValue ? "Clique para copiar" : undefined}
       >
         {label && <span className="text-xs text-slate-500 font-medium mb-0.5">{label}</span>}
-        <span className={`${truncate ? 'truncate' : ''} ${hasValue ? 'border-b border-dashed border-slate-300 dark:border-slate-700 group-hover:border-emerald-500' : ''} pb-0.5 select-none`}>
-            {displayValue}
-        </span>
+        <div className="flex items-center gap-1.5">
+          <span className={`${truncate ? 'truncate' : ''} ${hasValue ? 'border-b border-dashed border-slate-300 dark:border-slate-700 group-hover:border-emerald-500' : 'text-slate-400 italic'} pb-0.5 select-none`}>
+              {isEmail && hasValue ? (
+                <a 
+                  href={`mailto:${displayValue.toLowerCase()}`} 
+                  className="hover:underline text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5" 
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Mail className="h-3.5 w-3.5" />
+                  {displayValue.toLowerCase()}
+                </a>
+              ) : displayValue}
+          </span>
+        </div>
       </div>
       {hasValue && (
         <div className={`
@@ -213,9 +224,9 @@ const CopyableValue: React.FC<{ value: string | number | null | undefined; class
   );
 };
 
-const DataRow: React.FC<{ label: string; value: string | number | null | undefined }> = ({ label, value }) => (
+const DataRow: React.FC<{ label: string; value: string | number | null | undefined; isEmail?: boolean }> = ({ label, value, isEmail }) => (
   <div className="py-2 border-b border-slate-100 dark:border-slate-800 last:border-0">
-    <CopyableValue label={label} value={value} className="text-sm text-slate-700 dark:text-slate-200 font-medium" />
+    <CopyableValue label={label} value={value} isEmail={isEmail} className="text-sm text-slate-700 dark:text-slate-200 font-medium" />
   </div>
 );
 
@@ -306,6 +317,28 @@ export const CompanyDetails: React.FC<CompanyDetailsProps> = ({ data }) => {
       return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
   }
 
+  const formatPhone = (ddd: string | null, phone: string | null) => {
+    const cleanDdd = ddd?.replace(/\D/g, '').trim() || '';
+    const cleanPhone = phone?.replace(/\D/g, '').trim() || '';
+    
+    if (!cleanDdd && !cleanPhone) return null;
+    
+    if (cleanPhone.length > 8 && cleanPhone.startsWith(cleanDdd) && cleanDdd !== '') {
+       // O telefone já contém o DDD
+       const num = cleanPhone.slice(cleanDdd.length);
+       return `(${cleanDdd}) ${num.slice(0, num.length - 4)}-${num.slice(-4)}`;
+    }
+    
+    if (cleanDdd && cleanPhone) {
+      return `(${cleanDdd}) ${cleanPhone.slice(0, cleanPhone.length - 4)}-${cleanPhone.slice(-4)}`;
+    }
+    
+    return cleanPhone || cleanDdd || null;
+  };
+
+  // Melhoria na detecção do e-mail: tenta vários campos possíveis que a BrasilAPI costuma retornar
+  const companyEmail = data.email || (data as any).correio_eletronico || (data as any).email_contato;
+
   return (
     <div className="space-y-6">
       
@@ -351,8 +384,11 @@ export const CompanyDetails: React.FC<CompanyDetailsProps> = ({ data }) => {
                  <DataRow label="Nome Fantasia" value={data.nome_fantasia || 'NÃO INFORMADO'} />
                  <DataRow label="Capital Social" value={formatCurrency(data.capital_social)} />
                  <DataRow label="Data Abertura" value={formatDate(data.data_inicio_atividade)} />
-                 <DataRow label="Email" value={data.email?.toLowerCase()} />
-                 <DataRow label="Telefone" value={data.ddd_telefone_1 ? `(${data.ddd_telefone_1}) ${data.ddd_telefone_2 || ''}` : '-'} />
+                 <DataRow label="Email" value={companyEmail} isEmail={true} />
+                 <DataRow label="Telefone" value={formatPhone(data.ddd_telefone_1, data.ddd_telefone_2)} />
+                 {data.inscricoes_estaduais && data.inscricoes_estaduais.length > 0 && (
+                   <DataRow label="Inscrição Estadual" value={data.inscricoes_estaduais[0].numero || data.inscricoes_estaduais[0].ie} />
+                 )}
              </div>
           </div>
 

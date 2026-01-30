@@ -19,7 +19,8 @@ import {
   TrendingUp
 } from 'lucide-react';
 
-export const API_BASE_URL = 'https://brasilapi.com.br/api/cnpj/v1';
+export const API_BASE_URL_V2 = 'https://brasilapi.com.br/api/cnpj/v2';
+export const API_BASE_URL_V1 = 'https://brasilapi.com.br/api/cnpj/v1';
 
 // Link unificado para a nova landing page
 export const UNIFIED_AFFILIATE_LINK = "https://projetoj.my.canva.site/cnpjjsmb";
@@ -131,7 +132,7 @@ export const FOOTER_LINKS = [
   },
 ];
 
-export const MOCK_CODE_EXAMPLE = `curl -X GET "https://brasilapi.com.br/api/cnpj/v1/00000000000191"`;
+export const MOCK_CODE_EXAMPLE = `curl -X GET "https://brasilapi.com.br/api/cnpj/v2/00000000000191"`;
 
 export const MOCK_JSON_RESPONSE = `{
   "cnpj": "00.000.000/0001-91",
