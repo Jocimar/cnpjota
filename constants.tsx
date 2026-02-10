@@ -22,37 +22,39 @@ import {
 export const API_BASE_URL_V2 = 'https://brasilapi.com.br/api/cnpj/v2';
 export const API_BASE_URL_V1 = 'https://brasilapi.com.br/api/cnpj/v1';
 
-// Link unificado para a nova landing page
-export const UNIFIED_AFFILIATE_LINK = "https://projetoj.my.canva.site/cnpjjsmb";
+// Novo link direto para o catálogo da Ton (conforme solicitado)
+export const TON_AFFILIATE_LINK = "https://ton.com.br/catalogo/?referrer=EA9DA3C9-84B0-4436-A864-AE01BEC154EC&userAnticipation=0&utm_medium=invite_share&utm_source=revendedor";
 
-export const AFFILIATE_LINK = UNIFIED_AFFILIATE_LINK;
+// Link para o sistema de gestão SMB Store
+export const SMB_STORE_LINK = "https://projetoj.my.canva.site/cnpjjsmb";
 
-export const SMB_STORE_LINK = UNIFIED_AFFILIATE_LINK;
+// Compatibilidade com variáveis existentes nos componentes
+export const AFFILIATE_LINK = TON_AFFILIATE_LINK;
 
 export const MACHINE_MODELS_DATA = [
   {
     name: "T3 Smart Pro",
     desc: "A maquininha Android, mais rápida e melhor bateria",
     benefit: "Frete Grátis para todo Brasil",
-    link: UNIFIED_AFFILIATE_LINK
+    link: TON_AFFILIATE_LINK
   },
   {
     name: "T3 Pro",
     desc: "A maquininha com comprovante impresso",
     benefit: "Frete Grátis para todo Brasil",
-    link: UNIFIED_AFFILIATE_LINK
+    link: TON_AFFILIATE_LINK
   },
   {
     name: "T2 Pro",
     desc: "A maquininha compacta que tá sempre com você",
     benefit: "Frete Grátis para todo Brasil",
-    link: UNIFIED_AFFILIATE_LINK
+    link: TON_AFFILIATE_LINK
   },
   {
     name: "T1 Pro",
     desc: "A maquininha compacta que conecta com o seu celular",
     benefit: "Frete Grátis para todo Brasil",
-    link: UNIFIED_AFFILIATE_LINK
+    link: TON_AFFILIATE_LINK
   }
 ];
 
@@ -70,7 +72,7 @@ export const SMB_STORE_DATA = {
     { label: "Seguidores", value: "70k+" }
   ],
   cta: "Testar Sistema Grátis",
-  link: UNIFIED_AFFILIATE_LINK
+  link: SMB_STORE_LINK
 };
 
 export const TON_BENEFITS = [
@@ -86,8 +88,8 @@ export const NAV_ITEMS = [
     items: [
       { title: 'Consulta CNPJ', href: '/', icon: Search },
       { title: 'Status do Serviço', href: '/status', icon: Activity },
-      { title: 'Maquininha de Cartão', href: UNIFIED_AFFILIATE_LINK, icon: CreditCard, external: true },
-      { title: 'Controle Financeiro', href: UNIFIED_AFFILIATE_LINK, icon: LayoutDashboard, external: true },
+      { title: 'Maquininha de Cartão', href: TON_AFFILIATE_LINK, icon: CreditCard, external: true },
+      { title: 'Controle Financeiro', href: SMB_STORE_LINK, icon: LayoutDashboard, external: true },
     ],
   },
   {
@@ -112,8 +114,8 @@ export const FOOTER_LINKS = [
     items: [
       { title: 'Consulta CNPJ', href: '/', icon: Search },
       { title: 'Status do Serviço', href: '/status', icon: Activity },
-      { title: 'Maquininha de Cartão', href: UNIFIED_AFFILIATE_LINK, icon: CreditCard, external: true },
-      { title: 'Controle Financeiro', href: UNIFIED_AFFILIATE_LINK, icon: LayoutDashboard, external: true },
+      { title: 'Maquininha de Cartão', href: TON_AFFILIATE_LINK, icon: CreditCard, external: true },
+      { title: 'Controle Financeiro', href: SMB_STORE_LINK, icon: LayoutDashboard, external: true },
     ],
   },
   {

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br" class="light">
   <head>
@@ -11,113 +12,51 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-C31BZQTN35');
     </script>
 
     <!-- SEO Meta Tags -->
     <title>CNPJJ - Consulta de CNPJ e Dados Cadastrais de Empresas</title>
-    <meta name="description" content="Consulte CNPJ gratuitamente. Acesse dados atualizados da Receita Federal, Simples Nacional, Quadro de Sócios (QSA), Endereço e Situação Cadastral de empresas brasileiras." />
-    <meta name="keywords" content="consulta cnpj, receita federal, dados cadastrais, simples nacional, mei, busca empresa, cnpj grátis, cartão cnpj, quadro societário, brasilapi" />
-    <meta name="author" content="CNPJJ" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://cnpjj.com/" />
-
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cnpjj.com/" />
-    <meta property="og:title" content="CNPJJ - Consulta de CNPJ Grátis e Rápida" />
-    <meta property="og:description" content="Consulte dados completos de empresas: Situação Cadastral, Sócios, Endereço e Regime Tributário em tempo real." />
-    <meta property="og:image" content="https://placehold.co/1200x630/059669/ffffff?text=CNPJJ+Consulta+Gratis" />
-    <meta property="og:locale" content="pt_BR" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://cnpjj.com/" />
-    <meta property="twitter:title" content="CNPJJ - Consulta de CNPJ" />
-    <meta property="twitter:description" content="Consulte dados completos de empresas: Situação Cadastral, Sócios, Endereço e Regime Tributário em tempo real." />
-    <meta property="twitter:image" content="https://placehold.co/1200x630/059669/ffffff?text=CNPJJ+Consulta+Gratis" />
-
-    <meta name="google-site-verification" content="fLBhL89alXozHwhXBKpTHzQKK892eG3P5xZipa6bV8Q" />
+    <meta name="description" content="Consulte CNPJ gratuitamente. Acesse dados atualizados da Receita Federal, Simples Nacional, Quadro de Sócios (QSA), Endereço e Situação Cadastral." />
+    <meta name="keywords" content="consulta cnpj, receita federal, dados cadastrais, simples nacional, mei, busca empresa" />
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23059669' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z'/%3E%3Cpath d='M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2'/%3E%3Cpath d='M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2'/%3E%3Cpath d='M10 6h4'/%3E%3Cpath d='M10 10h4'/%3E%3Cpath d='M10 14h4'/%3E%3Cpath d='M10 18h4'/%3E%3C/svg%3E" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2924325515288163"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2924325515288163" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* Custom scrollbar for a cleaner look */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 4px;
-      }
-      .dark ::-webkit-scrollbar-thumb {
-        background: #334155;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              border: "hsl(var(--border))",
-              input: "hsl(var(--input))",
-              ring: "hsl(var(--ring))",
-              background: "hsl(var(--background))",
-              foreground: "hsl(var(--foreground))",
-              primary: {
-                DEFAULT: "#0f172a",
-                foreground: "#f8fafc",
-              },
-              secondary: {
-                DEFAULT: "#f1f5f9",
-                foreground: "#0f172a",
-              },
-              destructive: {
-                DEFAULT: "#ef4444",
-                foreground: "#f8fafc",
-              },
-              muted: {
-                DEFAULT: "#f1f5f9",
-                foreground: "#64748b",
-              },
-              accent: {
-                DEFAULT: "#f1f5f9",
-                foreground: "#0f172a",
-              },
+              emerald: { 500: '#10b981', 600: '#059669', 700: '#047857' }
             }
           }
         }
       }
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
-  }
-}
-</script>
-</head>
-  <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 antialiased overflow-x-hidden overflow-y-auto">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+        "react/": "https://aistudiocdn.com/react@^19.2.1/",
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
+      }
+    }
+    </script>
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .bg-grid { background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0); background-size: 24px 24px; }
+      .dark .bg-grid { background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); }
+    </style>
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 bg-grid">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

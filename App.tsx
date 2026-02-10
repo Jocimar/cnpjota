@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Documentation } from './components/Documentation';
@@ -12,12 +12,12 @@ import { Status } from './components/Status';
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
+    <Router>
       <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50">
         <Header />
         
-        <main className="flex-1 w-full px-4 md:px-8 py-4 md:py-8">
-          <div className="w-full max-w-6xl mx-auto">
+        <main className="flex-1 w-full px-4 md:px-8 py-8">
+          <div className="w-full max-w-6xl mx-auto min-h-[400px]">
             <Routes>
               <Route path="/" element={<CnpjSearch />} />
               <Route path="/:cnpj" element={<CnpjSearch />} />
@@ -31,7 +31,6 @@ const App: React.FC = () => {
           </div>
         </main>
 
-        {/* Info de Links Patrocinados */}
         <div className="w-full px-4 md:px-8 pb-6">
           <div className="max-w-6xl mx-auto">
             <p className="text-[10px] md:text-xs text-slate-400 dark:text-slate-500 text-center italic leading-relaxed">
@@ -42,7 +41,7 @@ const App: React.FC = () => {
 
         <Footer />
       </div>
-    </HashRouter>
+    </Router>
   );
 };
 
