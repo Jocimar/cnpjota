@@ -546,10 +546,6 @@ export const CompanyDetails: React.FC<CompanyDetailsProps> = ({ data }) => {
                                  <h4 className="font-black text-slate-900 dark:text-slate-100 uppercase text-sm">{socio.nome_socio}</h4>
                                  <div className="mt-2 flex flex-wrap gap-4 text-xs font-bold text-slate-500">
                                     <div className="flex items-center gap-1.5">
-                                       <span className="text-slate-400 uppercase">Qualificação:</span>
-                                       <span className="text-slate-700 dark:text-slate-300">{socio.codigo_qualificacao_socio}</span>
-                                    </div>
-                                    <div className="flex items-center gap-1.5">
                                        <span className="text-slate-400 uppercase">Entrada:</span>
                                        <span className="text-slate-700 dark:text-slate-300">{socio.data_entrada_sociedade}</span>
                                     </div>
