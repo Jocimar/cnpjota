@@ -88,7 +88,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center gap-2 font-black text-2xl text-slate-900 dark:text-white tracking-tighter">
             <Building2 className="w-8 h-8 text-emerald-600" />
